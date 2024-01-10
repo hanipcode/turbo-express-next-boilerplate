@@ -9,6 +9,8 @@ module.exports = {
     "prettier",
     require.resolve("@vercel/style-guide/eslint/next"),
     "eslint-config-turbo",
+    "plugin:import/recommended",
+    "plugin:@typescript-eslint/recommended",
   ],
   globals: {
     React: true,
@@ -29,7 +31,26 @@ module.exports = {
   ignorePatterns: [
     // Ignore dotfiles
     ".*.js",
+    "dist/",
     "node_modules/",
   ],
   overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
+  rules: {
+    "no-nested-ternary": "error",
+    "import/order": [
+      "error",
+      {
+        groups: [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type",
+        ],
+      },
+    ],
+  },
 };
