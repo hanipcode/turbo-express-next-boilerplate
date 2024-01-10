@@ -24,6 +24,5 @@ jobs:
           cache: "pnpm"
       - name: Install dependencies
         run: pnpm install
-      - run: pnpm ci
       - run: pnpm run build --if-present
       - run: npx semantic-release
