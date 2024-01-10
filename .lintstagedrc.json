@@ -1,0 +1,3 @@
+{
+  "*.{ts,tsx}": ["prettier --write --check", "eslint --max-warnings 0 --fix"]
+}
