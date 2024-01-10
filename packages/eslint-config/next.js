@@ -36,6 +36,9 @@ module.exports = {
   ],
   overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
   rules: {
+    "@next/next/no-html-link-for-pages": "off",
+    "import/no-default-export": "off",
+    "no-html-link-for-pages": "off",
     "no-nested-ternary": "error",
     "import/order": [
       "error",
