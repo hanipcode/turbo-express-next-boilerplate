@@ -8,6 +8,7 @@ module.exports = {
     "eslint:recommended",
     "prettier",
     require.resolve("@vercel/style-guide/eslint/next"),
+    "plugin:import/recommended",
     "eslint-config-turbo",
     "plugin:@typescript-eslint/recommended",
   ],
@@ -19,7 +20,7 @@ module.exports = {
     node: true,
     browser: true,
   },
-  plugins: ["only-warn"],
+  plugins: ["import", "only-warn"],
   settings: {
     "import/resolver": {
       typescript: {
@@ -35,8 +36,8 @@ module.exports = {
   ],
   overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
   rules: {
-    "@typescript-eslint/no-explicit-any": "off",
     "@next/next/no-html-link-for-pages": "off",
+    "@typescript-eslint/no-explicit-any": "off",
     "import/no-default-export": "off",
     "no-html-link-for-pages": "off",
     "no-nested-ternary": "error",
