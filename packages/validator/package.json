@@ -1,0 +1,22 @@
+{
+  "name": "@repo/validator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "module": ".",
+  "scripts": {
+    "lint": "eslint . --max-warnings 0"
+  },
+  "keywords": [],
+  "author": "Muhammad Hanif",
+  "license": "ISC",
+  "dependencies": {
+    "@mobily/ts-belt": "^3.13.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "typescript": "^5.3.3"
+  }
+}

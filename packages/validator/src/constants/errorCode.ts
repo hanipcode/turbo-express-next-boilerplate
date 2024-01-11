@@ -1,0 +1,4 @@
+export const ERROR_CODES = {
+  INVALID_BODY: 100400,
+  SERVER_ERROR: 100500,
+};

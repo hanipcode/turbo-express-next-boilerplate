@@ -11,7 +11,7 @@ module.exports = {
     "plugin:import/recommended",
     "plugin:@typescript-eslint/recommended",
   ],
-  plugins: ["only-warn"],
+  plugins: ["import", "only-warn"],
   globals: {
     Node: true,
   },
@@ -37,6 +37,9 @@ module.exports = {
     },
   ],
   rules: {
+    "@typescript-eslint/no-explicit-any": "off",
+    "import/no-default-export": "off",
+
     "import/order": [
       "error",
       {

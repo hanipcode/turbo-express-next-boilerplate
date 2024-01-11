@@ -9,7 +9,6 @@ module.exports = {
     "prettier",
     require.resolve("@vercel/style-guide/eslint/next"),
     "eslint-config-turbo",
-    "plugin:import/recommended",
     "plugin:@typescript-eslint/recommended",
   ],
   globals: {
@@ -36,6 +35,7 @@ module.exports = {
   ],
   overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
   rules: {
+    "@typescript-eslint/no-explicit-any": "off",
     "@next/next/no-html-link-for-pages": "off",
     "import/no-default-export": "off",
     "no-html-link-for-pages": "off",
