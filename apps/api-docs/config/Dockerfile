@@ -1,4 +1,6 @@
-FROM nginx:alpine as base
+FROM nginx:alpine as nginx
+
+FROM node:18-alpine AS base
 RUN npm install -g pnpm
 RUN npm install -g turbo
 
@@ -24,6 +26,6 @@ COPY turbo.json turbo.json
 
 RUN turbo build --filter api-docs
 
-FROM base as runner
+FROM nginx as runner
 COPY --from=installer /app/apps/api-docs/dist ./
 COPY . /usr/share/nginx/html
