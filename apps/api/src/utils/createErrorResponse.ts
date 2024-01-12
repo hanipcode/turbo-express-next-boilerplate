@@ -1,3 +1,5 @@
+import { serializeError } from "./serializeError";
+
 export const createErrorResponse = (
   errorCode: number,
   err: Error,
@@ -6,6 +8,6 @@ export const createErrorResponse = (
   code: errorCode,
   error: true,
   message: err.message,
-  detail: err,
+  detail: serializeError(err),
   additionalData,
 });

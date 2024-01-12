@@ -4,6 +4,7 @@ import { ROLES_KEY } from "@repo/validator";
 const UserSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
+  password: String,
   role: {
     type: String,
     enum: ROLES_KEY,

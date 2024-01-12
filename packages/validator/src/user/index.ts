@@ -28,10 +28,15 @@ export const ZUserRoles = z.enum(["", ...ROLES_KEY]);
 export const ZUserStatus = z.enum(["", ...USER_STATUS_KEY]);
 
 export const ZUser = z.object({
-  _id: z.string(),
-  fistName: z.string(),
+  _id: z.union([z.string(), z.any()]).refine((data: any) => {
+    if (typeof data === "string") {
+      return data;
+    }
+    return data.toString();
+  }),
+  firstName: z.string(),
   lastName: z.string(),
-  roles: z.string(ZUserRoles),
+  role: z.string(ZUserRoles),
   status: z.string(ZUserStatus),
 });
 export type T_User = z.infer<typeof ZUser>;

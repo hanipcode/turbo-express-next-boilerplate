@@ -5,3 +5,7 @@ import dotenv from "dotenv";
 if (fs.existsSync(path.join(__dirname, "../../../.env"))) {
   dotenv.config({ path: path.join(__dirname, "../../../.env") });
 }
+
+if (fs.existsSync(path.join(__dirname, "../../../../.env"))) {
+  dotenv.config({ path: path.join(__dirname, "../../../../.env") });
+}

@@ -1,12 +1,17 @@
+import { serializeError } from "./serializeError";
+
 export const createErrorLog = (
   serviceName: string,
   servicePath: string,
-  errorObject: Error,
+  errorCodes: number,
+  errorObject: any,
   additionalData?: any,
-) => ({
-  path: `/${serviceName}/${servicePath.replace(/^\//, "")}`,
-  serviceName,
-  servicePath,
-  errorObject,
-  additionalData,
-});
+) =>
+  JSON.stringify({
+    path: `/${serviceName}/${servicePath.replace(/^\//, "")}`,
+    serviceName,
+    servicePath,
+    errorCodes,
+    errorObject: serializeError(errorObject),
+    additionalData,
+  });
