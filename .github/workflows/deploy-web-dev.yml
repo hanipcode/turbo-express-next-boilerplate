@@ -88,7 +88,6 @@ jobs:
             docker rm $IMAGE_NAME || true
             # Run a new container from a new image
             docker run -d \
-            -p $FRONTEND_PORT:$FRONTEND_PORT \
             --restart always \
             --network=caddy-net \
             --name $IMAGE_NAME \
