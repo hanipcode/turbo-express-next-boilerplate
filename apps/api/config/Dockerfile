@@ -57,6 +57,8 @@ COPY --from=installer /app .
 
 RUN addgroup --system --gid 1001 expressjs
 RUN adduser --system --uid 1001 expressjs
+RUN mkdir -p ./logs
+RUN chown expressjs:expressjs ./logs
 USER expressjs
 
 CMD node apps/api/dist/index.js

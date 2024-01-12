@@ -1,17 +1,10 @@
-import fs from "fs";
-import path from "path";
 import winston from "winston";
 import "winston-daily-rotate-file";
-
-const logsDir = path.join(process.cwd(), "/logs");
-if (!fs.existsSync(logsDir)) {
-  fs.mkdirSync(logsDir);
-}
 
 const combinedFileTransport = new winston.transports.DailyRotateFile({
   filename: "combined-%DATE%.log",
   datePattern: "YYYY-MM-DD",
-  dirname: logsDir,
+  dirname: "logs",
   maxFiles: "3d",
 });
 const errorFileTransport = new winston.transports.DailyRotateFile({
@@ -19,21 +12,21 @@ const errorFileTransport = new winston.transports.DailyRotateFile({
   datePattern: "YYYY-MM-DD",
   maxFiles: "3d",
   level: "error",
-  dirname: logsDir,
+  dirname: "logs",
 });
 const exceptionFileTransport = new winston.transports.DailyRotateFile({
   filename: "exception-%DATE%.log",
   datePattern: "YYYY-MM-DD",
   maxFiles: "3d",
   level: "exception",
-  dirname: logsDir,
+  dirname: "logs",
 });
 const rejectionFileTransport = new winston.transports.DailyRotateFile({
   filename: "rejection-%DATE%.log",
   datePattern: "YYYY-MM-DD",
   maxFiles: "3d",
   level: "rejection",
-  dirname: logsDir,
+  dirname: "logs",
 });
 
 const logger = winston.createLogger({
