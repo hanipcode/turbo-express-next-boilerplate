@@ -12,6 +12,7 @@ module.exports = {
     "plugin:import/typescript",
     "eslint-config-turbo",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
   ],
   globals: {
     React: true,
@@ -21,7 +22,7 @@ module.exports = {
     node: true,
     browser: true,
   },
-  plugins: ["import", "only-warn"],
+  plugins: ["import", "@tanstack/query", "only-warn"],
   settings: {
     "import/resolver": {
       typescript: {
@@ -63,7 +64,6 @@ module.exports = {
           "sibling",
           "index",
           "object",
-          "type",
         ],
       },
     ],
