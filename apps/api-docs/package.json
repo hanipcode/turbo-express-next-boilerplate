@@ -7,7 +7,12 @@
   "private": true,
   "scripts": {
     "dev": "redocly preview-docs",
-    "build": "redocly bundle -o dist/bundle.yaml",
+    "build": "npm-run-all --sequential build:bundle build:docs",
+    "build:bundle": "redocly bundle -o dist/bundle.yaml",
+    "build:docs": "redocly build-docs dist/bundle.yaml -o dist/index.html",
     "test": "redocly lint"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
   }
 }
