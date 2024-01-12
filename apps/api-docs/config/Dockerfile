@@ -27,5 +27,4 @@ COPY turbo.json turbo.json
 RUN turbo build --filter api-docs
 
 FROM nginx as runner
-COPY --from=installer /app/apps/api-docs/dist ./
-COPY . /usr/share/nginx/html
+COPY --from=installer /app/apps/api-docs/dist/index.html /usr/share/nginx/html
