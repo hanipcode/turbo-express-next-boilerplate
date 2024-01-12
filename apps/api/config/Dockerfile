@@ -59,4 +59,4 @@ RUN addgroup --system --gid 1001 expressjs
 RUN adduser --system --uid 1001 expressjs
 USER expressjs
 
-CMD node apps/api/build/index.js
+CMD node apps/api/dist/index.js
