@@ -10,6 +10,7 @@
   "dependencies": {
     "@mobily/ts-belt": "^3.13.1",
     "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "crypto-js": "^4.2.0",
     "dotenv": "^16.3.1",
@@ -30,6 +31,7 @@
     "@repo/typescript-config": "workspace:*",
     "@repo/validator": "workspace:*",
     "@types/compression": "^1.7.5",
+    "@types/cookie-parser": "^1.4.6",
     "@types/cors": "^2.8.17",
     "@types/crypto-js": "^4.2.1",
     "@types/eslint": "^8.56.1",

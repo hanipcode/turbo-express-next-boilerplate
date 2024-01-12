@@ -1,0 +1,13 @@
+{
+  "name": "api-docs",
+  "version": "1.0.0",
+  "dependencies": {
+    "@redocly/cli": "1.0.0-beta.127"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "redocly preview-docs",
+    "build": "redocly bundle -o dist/bundle.yaml",
+    "test": "redocly lint"
+  }
+}
