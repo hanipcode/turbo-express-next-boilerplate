@@ -6,6 +6,11 @@ node_modules
 .pnp.js
 logs
 
+# Editor
+.editorconfig
+.idea
+.vscode
+
 # Local env files
 .env
 .env.local
