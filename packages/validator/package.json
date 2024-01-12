@@ -2,10 +2,13 @@
   "name": "@repo/validator",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
-  "module": ".",
+  "main": "./dist/index.js",
+  "module": "./dist",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "lint": "eslint . --max-warnings 0"
+    "lint": "eslint . --max-warnings 0",
+    "dev": "tsc --watch",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "Muhammad Hanif",
