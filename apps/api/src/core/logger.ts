@@ -3,11 +3,10 @@ import path from "path";
 import winston from "winston";
 import "winston-daily-rotate-file";
 
-const logsDir = path.join(__dirname, "../../logs");
+const logsDir = path.join(process.cwd(), "/logs");
 if (!fs.existsSync(logsDir)) {
   fs.mkdirSync(logsDir);
 }
-const { combine, timestamp, json } = winston.format;
 
 const combinedFileTransport = new winston.transports.DailyRotateFile({
   filename: "combined-%DATE%.log",
@@ -37,14 +36,6 @@ const rejectionFileTransport = new winston.transports.DailyRotateFile({
   dirname: logsDir,
 });
 
-const httpFileTransport = new winston.transports.DailyRotateFile({
-  filename: "http-%DATE%.log",
-  datePattern: "YYYY-MM-DD",
-  maxFiles: "3d",
-  level: "error",
-  dirname: logsDir,
-});
-
 const logger = winston.createLogger({
   levels: winston.config.syslog.levels,
   level: "info",
@@ -58,18 +49,6 @@ const logger = winston.createLogger({
   rejectionHandlers: [rejectionFileTransport],
 });
 
-export const httpLogger = winston.createLogger({
-  level: "http",
-  format: combine(
-    timestamp({
-      format: "YYYY-MM-DD hh:mm:ss.SSS A",
-    }),
-    json(),
-  ),
-  transports: [new winston.transports.Console(), httpFileTransport],
-});
-
-httpLogger.exitOnError = false;
 logger.exitOnError = false;
 
 export default logger;

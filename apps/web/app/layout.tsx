@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Toaster } from "@/components/ui/toaster";
+import ReactQueryWrapper from "../components/shared/ReactQueryWrapper";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,7 +15,10 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ReactQueryWrapper>{children}</ReactQueryWrapper>
+        <Toaster />
+      </body>
     </html>
   );
 }

@@ -8,7 +8,8 @@
     "SIGN_KEY",
     "ENCRYPT_KEY",
     "NODE_ENV",
-    "MONGO_URL"
+    "MONGO_URL",
+    "NEXT_PUBLIC_API_URL"
   ],
   "pipeline": {
     "build": {

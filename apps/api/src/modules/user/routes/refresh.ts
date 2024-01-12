@@ -51,7 +51,7 @@ const refreshToken = asyncHandler(async (req: Request, res: Response) => {
   });
 
   profiler.done({
-    message: createSuccessLog(serviceName, servicePath, accessToken),
+    message: createSuccessLog(serviceName, servicePath, {}),
   });
   res.status(HTTP_CODES.SUCCESS).json(createSuccessResponse({ accessToken }));
 });

@@ -1,5 +1,17 @@
+"use client";
+import { useRouter } from "next/navigation";
+import { getAccessToken } from "../helpers/auth";
+
 const RootPath = () => {
-  return <h1 className="text-6xl font-bold underline">Hello world!</h1>;
+  const router = useRouter();
+  if (process.browser) {
+    const accessToken = getAccessToken();
+    if (accessToken) {
+      router.push("/profile-home");
+      return;
+    }
+    router.push("/login");
+  }
 };
 
 export default RootPath;
