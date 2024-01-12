@@ -29,8 +29,8 @@ jobs:
       - name: Install Node.js dependencies
         run: pnpm install
 
-      - name: build packages
-        run: pnpm build
+      - name: build repo/validator
+        run: pnpm --filter=@repo/validator run build
 
       - name: run prettier
         run: pnpm run check:prettier

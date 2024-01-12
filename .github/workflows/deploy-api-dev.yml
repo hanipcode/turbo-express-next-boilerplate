@@ -90,6 +90,7 @@ jobs:
             docker run -d \
             --restart always \
             --network=caddy-net \
+            -v /app/logs:/var/logs \
             --name $IMAGE_NAME \
             $(echo $REGISTRY)/$IMAGE_NAME:$IMAGE_TAG
             # prune old images
