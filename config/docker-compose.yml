@@ -26,3 +26,8 @@ services:
         - MONGO_URL=${MONGO_URL}
         - REDIS_URL=${REDIS_URL}
         - SENTRY_DSN=${SENTRY_DSN}
+  api-docs:
+    image: ${REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}
+    build:
+      context: ..
+      dockerfile: ./apps/api-docs/config/Dockerfile
