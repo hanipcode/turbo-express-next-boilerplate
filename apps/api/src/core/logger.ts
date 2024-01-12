@@ -3,7 +3,7 @@ import path from "path";
 import winston from "winston";
 import "winston-daily-rotate-file";
 
-const logsDir = path.join(process.cwd(), "/logs");
+const logsDir = path.join(__dirname, "/logs");
 if (!fs.existsSync(logsDir)) {
   fs.mkdirSync(logsDir);
 }
