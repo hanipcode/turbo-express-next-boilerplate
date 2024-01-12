@@ -25,7 +25,7 @@ export const login = asyncHandler(async (req: Request, res: Response) => {
   const validatedBody = bodyValidation.safeParse(req.body);
   if (!validatedBody.success) {
     res
-      .status(HTTP_CODES.BODY_ERROR)
+      .status(HTTP_CODES.BAD_REQUEST)
       .json(createErrorResponse(ERROR_CODES.INVALID_BODY, validatedBody.error));
     return;
   }
@@ -47,13 +47,27 @@ export const login = asyncHandler(async (req: Request, res: Response) => {
     const errorCode = ERROR_CODES.WRONG_PASSWORD;
     logger.error(createErrorLog(serviceName, servicePath, errorCode, error));
     res
-      .status(HTTP_CODES.BODY_ERROR)
+      .status(HTTP_CODES.BAD_REQUEST)
       .json(createErrorResponse(errorCode, error));
 
     return;
   }
+  const accessToken = userServices.signAccessToken({
+    email: user.email,
+    role: user.role,
+  });
+  const refreshToken = userServices.signRefreshToken({
+    email: user.email,
+    role: user.role,
+  });
+  res.cookie("refreshToken", refreshToken, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+  });
   profiler.done({
     message: createSuccessLog(serviceName, servicePath, user),
   });
-  res.status(HTTP_CODES.SUCCESS).json(createSuccessResponse(user));
+  res
+    .status(HTTP_CODES.SUCCESS)
+    .json(createSuccessResponse({ user, accessToken }));
 });

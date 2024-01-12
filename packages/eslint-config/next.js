@@ -9,6 +9,7 @@ module.exports = {
     "prettier",
     require.resolve("@vercel/style-guide/eslint/next"),
     "plugin:import/recommended",
+    "plugin:import/typescript",
     "eslint-config-turbo",
     "plugin:@typescript-eslint/recommended",
   ],
@@ -42,6 +43,7 @@ module.exports = {
     "no-html-link-for-pages": "off",
     "no-nested-ternary": "error",
     "no-unused-vars": "off",
+    "no-restricted-syntax": ["error", "TryStatement"],
     "@typescript-eslint/no-unused-vars": [
       "warn", // or "error"
       {

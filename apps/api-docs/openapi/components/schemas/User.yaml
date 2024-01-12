@@ -1,19 +1,27 @@
 type: object
 properties:
-  username:
-    description: User supplied username
+  _id:
+    description: User Id
     type: string
-    minLength: 4
-    example: John78
+  email:
+    description: User email
+    type: string
   firstName:
     description: User first name
     type: string
-    minLength: 1
-    example: John
   lastName:
     description: User last name
     type: string
-    minLength: 1
-    example: Smith
-  email:
-    $ref: ./Email.yaml
+  role:
+    description: User Roles
+    type: string
+    enum:
+      - Super
+      - Administrator
+      - Corporate
+      - Production
+      - Personnel
+      - HR
+      - HRDirector
+      - Accounting
+      - Sales
