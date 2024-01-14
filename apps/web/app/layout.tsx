@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Toaster } from "@/components/ui/toaster";
-import ReactQueryWrapper from "../components/shared/ReactQueryWrapper";
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Create Turborepo",
@@ -16,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ReactQueryWrapper>{children}</ReactQueryWrapper>
+        {children}
         <Toaster />
       </body>
     </html>
